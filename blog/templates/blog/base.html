@@ -7,8 +7,15 @@
     </head>
     <body class="bg-blue-100 font-sans">
         <header class="bg-blue-400 py-10">
-            <h1 class="text-5xl text-green-100 flex items-center justify-center">Django Girls Blog</h1>
+            <h1 class="text-5xl text-green-100 flex items-center justify-center"><a href="{% url 'post_list' %}">Django Girls Blog</a></h1>
         </header>
+        {% if user.is_authenticated %}
+            <div class="bg-gray-300">
+                <a href="{% url 'post_new' %}" class="flex items-center justify-center p-2">
+                    {% include './icons/file-earmark-plus.svg' %}
+                </a>
+            </div>
+        {% endif %}
         <main>
             {% block content %}
             {% endblock %}
