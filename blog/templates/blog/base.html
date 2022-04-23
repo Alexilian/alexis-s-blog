@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load tailwind_tags %}
+<html>
+    <head>
+        {% tailwind_css %}
+        <title>Django Girls blog</title>
+    </head>
+    <body class="bg-blue-100 font-sans">
+        <header class="bg-blue-400 py-10">
+            <h1 class="text-5xl text-green-100 flex items-center justify-center">Django Girls Blog</h1>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>

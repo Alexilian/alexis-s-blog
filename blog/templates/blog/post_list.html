@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </header>
-        
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="flex grid grid-cols-2">
         {% for post in posts %}
-            <article>
-                <time>published: {{post.published_date}}</time>
-                <h2><a href="">{{post.title}}</a></h2>
-                <p>{{post.text|linebreaksbr}}.</p>
+            <article class="bg-blue-300 rounded-xl m-8">
+                <h2 class="bg-blue-500 rounded-t-xl text-2xl p-2"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+                <p class="pl-2">{{post.text|linebreaksbr}}.</p>
+                <p class="text-xs text-right">published: {{post.published_date}} by {{post.author}}.</p>
             </article>
         {% endfor %}
-
-    </body>
-</html>
+    </div>
+{% endblock %}
