@@ -16,4 +16,4 @@ sqlparse==0.4.2
 urllib3==1.25.8
 typing_extensions==4.2.0
 whitenoise==6.0.0
-django-tailwind==8.5.0
+django-tailwind==2.2.2
