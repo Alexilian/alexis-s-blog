@@ -2,7 +2,14 @@
 
 {% block content %}
     <article class="bg-blue-300 rounded-xl m-8">
-        <h2 class="bg-blue-500 rounded-t-xl text-2xl p-2 flex"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>{% if user.is_authenticated %}<a href="{% url 'post_edit' pk=post.pk %}">{% include './icons/pencil-fill.svg' %}</a>{% endif %}</h2>
+        <h2 class="bg-blue-500 rounded-t-xl text-2xl p-2 flex">
+            <a href="{% url 'post_detail' pk=post.pk %}">
+                {{post.title}}
+            </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_edit' pk=post.pk %}">{% include './icons/pencil-fill.svg' %}</a>
+            {% endif %}
+        </h2>
         <p class="pl-2">{{post.text|linebreaksbr}}.</p>
         {% if post.published_date %}
             <p class="text-xs text-right">published: {{post.published_date}} by {{post.author}}.</p>
